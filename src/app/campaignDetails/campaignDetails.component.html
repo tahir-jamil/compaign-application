@@ -1,0 +1,283 @@
+<head>
+
+</head>
+
+<body>
+
+  <div>
+    <div class="row" style=" margin-top: 11%;">
+
+      <div class="col-lg-8">
+        <div style="padding-left:70px ;" class="wf-product-preview clearfix row">
+
+
+          <video style="height: 400px;width: 700px;" controls>
+            <source [src]='"../assets/images/"+ data?.vedio' type="video/mp4">
+          </video>
+
+        </div>
+        <div class="row" style="margin: 2%;">
+          <div *ngFor="let item of images" style="margin:3% ;padding-left: 5px;"
+           class="nav nav-tabs" role="tablist">
+
+            <img style="height: 200px;width: 200px;" [src]='"../assets/images/"+ item' alt="">
+          </div>
+          <ul>
+
+
+
+          </ul>
+        </div>
+        <div >
+
+          <div style="margin:5%" >
+            <mat-tab-group>
+              <mat-tab label="First">
+                <div class="tab-content xs-text-tab-content">
+                  <div style="margin-top: 2%;">
+                    <p style="font-size: xx-large;">About Campaign</p>
+                   <p>{{doc.description}}</p>
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="Reviews">
+
+                <div>
+
+                  <div>
+                    <div>
+                      <div class="form-group" style="margin: 2%">
+                        <p style="font-size: xx-large;" class="woocommerce-Reviews-title">Post your Reviews</p>
+                        <label>Name</label><br>
+                        <input [(ngModel)]='name' style="width: 50%;" class="form-control" type="text" name="name">
+                        <label>Review</label><br>
+                        <input [(ngModel)]='details' style="width: 50%;" class="form-control" type="text" name="details">
+                        <h3 for="rating">Your rating
+                        </h3>
+                        <select [(ngModel)]='rating' name="rating" id="rating" aria-required="true" required>
+                          <option value="">Rate&hellip;</option>
+                          <option value="Perfect">Perfect</option>
+                          <option value="Good">Good</option>
+                          <option value="Average">Average</option>
+                          <option value="Not that bad">Not that bad</option>
+                          <option value="Very poor">Very poor</option>
+                        </select><br>
+                        <button style="margin-top: 3%;" type="submit" (click)="uploadReview()"
+                          class="icon-btn xs-btn radius-btn green-btn xs-btn-medium wp_donate_button">Post
+                          Review</button>
+                      </div>
+
+                    </div>
+
+                    <div>
+                      <p style="font-size: xx-large;" class="woocommerce-Reviews-title">Reviews</p>
+
+
+                      <div class="row" *ngFor="let item of reviews" style="margin: 3%">
+                        <!-- <img class="col-lg-2" style="height: 40px;margin: 1%;" width="40px" src="../assets/images/user.png"
+                          alt=""> -->
+                        <p style="font-weight: bold;">
+                          <strong>{{item?.name}}</strong><br>
+
+                        </p>
+
+    <p style="text-align: right;padding-left: 250px;">Rating {{item?.rating}}</p>
+                        <div  class="tab-content xs-text-tab-content" style="margin: 10%;margin-top: 5%;margin-right: 5%">
+                          {{item?.details}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </mat-tab>
+              <mat-tab label="Updates">
+
+
+                <div>
+                  <div class="form-group" style="margin: 5%;  ">
+
+
+                    <p style="font-size: xx-large;">Upload New Updates</p><br>
+                    <input [(ngModel)]='details' class="form-control" type="text" name="details">
+
+                    <button style="margin-top: 3%;" type="submit" (click)='uploadStory()'
+                      class="icon-btn xs-btn radius-btn green-btn xs-btn-medium wp_donate_button">
+                      Post Update</button>
+                  </div>
+                  <div>
+                    <p style="font-size: xx-large;">Project Updates </p>
+                    <div *ngFor="let data of stories">
+                      <div style="padding-left: 20px;">
+
+                        {{data?.details}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </mat-tab>
+            </mat-tab-group>
+
+          </div>
+
+
+
+      </div>
+
+</div>
+      <div class="col-lg-4">
+
+        <div class="xs-sidebar-wraper">
+          <div style="padding-right: 180px;height: 100px;margin-top: 5%; ">
+
+            <circle-progress [percent]="animatedCirclePercentage" [radius]="200" [outerStrokeWidth]="35" [innerStrokeWidth]="25" [space]="-10"
+              [outerStrokeColor]="'#4882c2'" [innerStrokeColor]="'#e7e8ea'" [titleFontSize]="64" [unitsFontSize]="64"
+              [showSubtitle]="true" [animation]="true" [animationDuration]="800" [startFromZero]="false"
+              [responsive]="true"></circle-progress>
+          </div>
+          <div class="xs-single-sidebar xs-mb-30">
+            <ul style="padding-top: 5%;" class="xs-list-with-content fundpress-simple-list-content">
+              <li class="color-navy-blue bold xs-mb-20">&#36;{{totalamount}}<span
+                  class="color-semi-black regular">Pledged</span></li>
+
+              <li class="color-green bold xs-mb-20">&#36;{{doc?.amount}}<span class="color-semi-black regular">
+                  Goal</span>
+              </li>
+
+              <li class="color-brick-light-2 bold">{{backers?.length}}<span
+                  class="color-semi-black regular">Backers</span></li>
+
+            </ul>
+          </div>
+
+
+
+        </div>
+        <div style="margin-right:5%">
+          <div>
+             <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white"
+          style="background-color: #7B1FA2;">
+          <div>
+               <h3 class="xs-mb-30">Pledge &#36;{{doc?.pledgeAmount1}} or more</h3>
+          <h4 class="xs-mb-20">Support This Project</h4>
+
+          <p class="xs-mb-20 xs-content-description fundpress-content-description">{{doc?.rewardDetails1}}.</p>
+
+
+
+          <div class="xs-spilit-container">
+
+            <div class="xs-info-card-times">
+              <h5>Estimated Delivery</h5>
+              <h6>17-08-2018</h6>
+            </div>
+            <div class="xs-info-card-times">
+              <h5>Ship To</h5>
+              <h6>Anywhere in the world</h6>
+            </div>
+          </div>
+        </div>
+
+        </div>
+        <form>
+          <div>
+            <div>
+              <input type="number" (input)="amountChanged($event.target.value)" [(ngModel)]="pledgeAmount"
+                placeholder="pledgeAmount" name="pledgeAmount">
+              <p>Amount Limit: {{limitedAmountValue}}</p>
+              <p style="color: red;" *ngIf="!isValidAmount">Please enter valid amount</p>
+              <br>
+              <button (click)="invest()" style="margin-top:3%;margin-bottom:5%" type="submit"
+                class="icon-btn xs-btn radius-btn green-btn xs-btn-medium wp_donate_button">Invest
+                Now</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div>
+        <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white"
+        style="background-color: #7B1FA2;">
+        <div>
+             <h3 class="xs-mb-30">Pledge &#36;{{doc?.pledgeAmount2}} or more</h3>
+        <h4 class="xs-mb-20">Support This Project</h4>
+
+        <p class="xs-mb-20 xs-content-description fundpress-content-description">{{doc?.rewardDetails2}}.</p>
+
+
+
+        <div class="xs-spilit-container">
+
+          <div class="xs-info-card-times">
+            <h5>Estimated Delivery</h5>
+            <h6>17-08-2018</h6>
+          </div>
+          <div class="xs-info-card-times">
+            <h5>Ship To</h5>
+            <h6>Anywhere in the world</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form>
+      <div>
+        <div>
+          <input type="number" (input)="amountChanged($event.target.value)" [(ngModel)]="pledgeAmount"
+            placeholder="pledgeAmount" name="pledgeAmount">
+          <p>Amount Limit: {{limitedAmountValue}}</p>
+          <p style="color: red;" *ngIf="!isValidAmount">Please enter valid amount</p>
+          <br>
+          <button (click)="invest()" style="margin-top:3%;margin-bottom:5%" type="submit"
+            class="icon-btn xs-btn radius-btn green-btn xs-btn-medium wp_donate_button">Invest
+            Now</button>
+        </div>
+      </div>
+    </form>
+      </div>
+      <div>
+          <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white"
+      style="background-color: #7B1FA2;">
+      <div>
+           <h3 class="xs-mb-30">Pledge &#36;{{doc?.pledgeAmount3}} or more</h3>
+      <h4 class="xs-mb-20">Support This Project</h4>
+
+      <p class="xs-mb-20 xs-content-description fundpress-content-description">{{doc?.rewardDetails3}}.</p>
+
+
+
+      <div class="xs-spilit-container">
+
+        <div class="xs-info-card-times">
+          <h5>Estimated Delivery</h5>
+          <h6>17-08-2018</h6>
+        </div>
+        <div class="xs-info-card-times">
+          <h5>Ship To</h5>
+          <h6>Anywhere in the world</h6>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <form>
+      <div>
+        <div>
+          <input type="number" (input)="amountChanged($event.target.value)" [(ngModel)]="pledgeAmount"
+            placeholder="pledgeAmount" name="pledgeAmount">
+          <p>Amount Limit: {{limitedAmountValue}}</p>
+          <p style="color: red;" *ngIf="!isValidAmount">Please enter valid amount</p>
+          <br>
+          <button (click)="invest()" style="margin-top:3%;margin-bottom:5%" type="submit"
+            class="icon-btn xs-btn radius-btn green-btn xs-btn-medium wp_donate_button">Invest
+            Now</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  </div>
+
+
+      </div>
+    </div>
+
