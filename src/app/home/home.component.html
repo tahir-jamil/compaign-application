@@ -1,0 +1,258 @@
+<div class="row">
+
+  <div id="myCarousel" class="carousel slide " data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner  ">
+      <div class="carousel-inner  ">
+
+        <div class="item active ">
+          <img class="img-responsive" style="width: 100%;" src="../assets/images/img1.jpg">
+          <div class="textimages">
+
+            <div style=" margin-bottom: 10%;font-size: 400%; white-space: nowrap; color: #6f797a; ">
+              Smart Thinking </div>
+            <div style="z-index: 6; white-space: nowrap; color: #6f797a; ">
+              Lorem ipsum dolor sit amet, consectetur adipisicing<br> elit sed do eiusmod tempor incididunt ut
+              labore <br>etea dolore. </div>
+
+            <a href='#'><i class="fa fa-shopping-cart"></i>
+              <h3 style="color: #183379;"><strong>PRE-ORDER</strong> </h3>
+            </a>
+          </div>
+        </div>
+
+
+
+        <div class="item ">
+          <img class="img-responsive" style="width: 100%;" src="../assets/images/img2.jpg">
+
+          <div class="textimages">
+            <div style="margin-bottom: 10%;font-size: 400%; white-space: nowrap; color: #6f797a; ">
+              Best Watches </div>
+            <div style=" white-space: nowrap; color: #6f797a; ">Lorem ipsum dolor sit amet, consectetur adipisicing<br>
+              elit
+              sed do eiusmod tempor incididunt ut labore <br>etea dolore.
+            </div>
+            <a href='#'><i class="fa fa-shopping-cart"></i>
+              <h3 style="color: #183379;"><strong>PRE-ORDER</strong> </h3>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="item">
+          <img class="img-responsive" style="width: 100%;" src="../assets/images/img3.jpg">
+          <div class="textimages">
+
+            <div style="font-size: 400%;margin-bottom: 10%; white-space: nowrap; color: #6f797a; ">
+              Bicycle Furniture </div>
+            <div>
+
+              <div style=" white-space: nowrap; color: #6f797a; ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing<br>
+                elit
+                sed do eiusmod tempor incididunt ut labore <br>etea dolore.
+              </div>
+              <a href='#'><i class="fa fa-shopping-cart"></i>
+                <h3 style="color: #183379;"><strong>PRE-ORDER</strong> </h3>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+
+  <div>
+    <div>
+
+
+      <div style="margin-bottom: 10%;" class="fundpress-heading-title">
+
+        <div style="margin: 10%;word-wrap: break-word;">
+          <h2 class="color-navy-blue">Big of small your cause matters</h2>
+          <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+          <p>It allows you to gather monthly subscriptions from fans to help fund your creative projects. They also
+            encourage their users to offer rewards to fans as a way to repay them for their support.</p>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6 container ">
+          <img style="height: 450px;width: 750px;" class="gradient responsive image">
+          <div class="hero-text" style="margin-bottom:5% ;">
+            <h1 style="font-size:xx-large;"><strong>Back Others</strong></h1>
+            <h4 style="word-wrap: break-word;"><strong> Help Other to build their Startups</strong></h4>
+          </div>
+
+          <div class="middle" style="margin-top:15% ;">
+
+            <div class="xs-btn-wrapre">
+              <a href="allprojects"
+                class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">Projects</a>
+            </div>
+            <!-- <div class="text" style="border-radius: 25px;" (click)="startCampaign()">Find a Project</div> -->
+          </div>
+
+
+        </div>
+        <div class="col-lg-6 container ">
+          <img style="height: 450px;width: 755px;" class=" gradient  responsive image2">
+          <div class="hero-text">
+            <h1 style="font-size:xx-large;"><strong>Get Funded</strong></h1>
+            <h4 style="word-wrap: break-word;"><strong> Find help to achieve your ideas </strong></h4>
+
+          </div>
+          <div class="middle" style="margin-top:15% ;">
+            <!-- <div class="text" style="border-radius: 25px;" (click)="backCampaign()">Create a Project</div> -->
+            <div class="xs-btn-wrapre">
+              <a (click)="showProjects()"
+                class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">create a project </a>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin: 5%;" class="containerflex">
+          <div class="item" style="margin:3%" *ngFor="let data of data">
+                <img [src]='"../assets/images/"+ data.mainImage' style="height: 200px;width: 300px;" class="responsive">
+
+
+              <p style="text-align: center;font-size: large;font-weight: bold;">{{data?.title}}</p>
+              <p >{{data?.tagline}}</p>
+             <div>
+              <div class="row">
+              <p  class="col-lg-6">Catagory:</p><br>
+              <p  class="col-lg-6" style="padding-left: 90px;font-weight: bold;">{{data?.type}}</p>
+            </div>
+            <div class="row">
+              <p  class="col-lg-6">Goal</p>
+              <p class="col-lg-6" style="padding-left: 90px;font-weight: bold;">{{data?.amount}}</p>
+            </div>
+          </div>
+            <mat-progress-bar style="margin:3%" mode="determinate" value=60></mat-progress-bar>
+              <!-- <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                  >
+                  <span class="sr-only">70% Complete</span>
+                </div>
+              </div> -->
+
+  <div>
+              <div  style="float:left">
+                <button (click)="campaignDetails(data._id)" style="color: white;" class=" btn green-btn">Back campaign</button>
+              </div>
+            <div style="float: right;">
+              <button  type="submit"
+              class=" btn green-btn"  style="color: white;">Follow Campaign</button>
+            </div>
+
+          </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="fundpress-tab-nav xs-tab-nav">
+
+        <ul style="margin: 4%;" class="nav nav-tabs" role="tablist">
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="filter('Comics')" role="tab" data-toggle="tab">Comics</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link " (click)="filter('Food')" role="tab" data-toggle="tab">Food</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Design')" role="tab" data-toggle="tab">Design</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Fashion')" role="tab" data-toggle="tab">Fashion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Craft')" role="tab" data-toggle="tab">Craft</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Health')" role="tab" data-toggle="tab">Health</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Dance')" role="tab" data-toggle="tab">Dance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="filter('Games')" role="tab" data-toggle="tab">Games</a>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+
+    <div>
+      <div style="margin: 5%;" class="containerflex">
+        <div class="item" style="margin:3%" *ngFor="let data of filterData">
+
+
+
+
+              <img [src]='"../assets/images/"+ data.mainImage' style="height: 200px;width: 300px;" class="responsive">
+
+
+            <p style="text-align: center;font-size: large;font-weight: bold;">{{data?.title}}</p>
+            <p >{{data?.tagline}}</p>
+           <div>
+            <div class="row">
+            <p  class="col-lg-6">Catagory:</p><br>
+            <p  class="col-lg-6" style="padding-left: 90px;font-weight: bold;">{{data?.type}}</p>
+          </div>
+          <div class="row">
+            <p  class="col-lg-6">Goal</p>
+            <p class="col-lg-6" style="padding-left: 90px;font-weight: bold;">{{data?.amount}}</p>
+          </div>
+        </div>
+          <mat-progress-bar style="margin:3%" mode="determinate" value=60></mat-progress-bar>
+            <!-- <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                >
+                <span class="sr-only">70% Complete</span>
+              </div>
+            </div> -->
+
+<div>
+            <div  style="float:left">
+              <button (click)="campaignDetails(data._id)" style="color: white;" class=" btn green-btn">Back campaign</button>
+            </div>
+          <div style="float: right;">
+            <button  type="submit"
+            class=" btn green-btn"  style="color: white;">Follow Campaign</button>
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>

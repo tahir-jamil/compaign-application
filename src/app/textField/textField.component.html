@@ -1,0 +1,6 @@
+<div [formGroup]="rformgroup" >
+  <input [formControlName]="rformControlName" [type]="type" [ngClass]="{ errorBorder :invalidControl}" class="form-control textFieldStling ">
+  <h3  *ngIf="errorRequired" class="errorlbl">incomplete input</h3>
+  <h3  *ngIf="errorFormate" class="errorlbl">format is incorrect</h3>
+  <h3  *ngIf="errorminLength || errormaxLength"  class="errorlbl">length is incorrect</h3>
+</div>

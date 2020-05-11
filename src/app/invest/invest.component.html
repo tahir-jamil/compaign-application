@@ -1,0 +1,26 @@
+<div>
+  <div *ngFor="let data of data">
+    <div style="margin-top: 10%;" class="card card-body mb-3">
+
+
+      <img src="../assets/images/contact.jpg" style="height: 200px;width: 300px;" class="responsive">
+    </div>
+
+    <p style="font-size: larger;">{{data.title}}</p>
+    <p>{{data.tagline}}</p>
+    <div *ngFor="let item of investments">
+      <div>
+        {{item?.name}}
+        <p>skldfjsld</p>
+      </div>
+      </div>
+
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0">
+        <span class="sr-only">70% Complete</span>
+      </div>
+    </div>
+
+    <button>Get notification</button>
+  </div>
+</div>

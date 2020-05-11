@@ -1,0 +1,155 @@
+<div style="padding-top: 120px;" class="container">
+  <h1 style="text-align: center;">Genral Information</h1>
+
+
+
+  <form [formGroup]="rform">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <h2>Campaign Title</h2>
+        <h4>What is the title of your campaign?</h4>
+        <ns-textField name="title"  class="textfieldBorderColor  font13 textfield" [rformgroup]="rform" rformControlName="title">
+        </ns-textField>
+        <h2>Campaign Tagline</h2>
+        <h4>provide a short description that best describe your campaign to your audience</h4>
+        <ns-textField class="textfieldBorderColor  font13" [rformgroup]="rform" rformControlName="tagline">
+        </ns-textField>
+
+
+        <!-- <mat-form-field [formGroup]="rform">
+          <mat-label>Location</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of ['Technology','Design','Fashion','Food','Music']">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+
+        <!-- <h3>Vedio Url</h3>
+                <h4>Enter a youtube Url to appear at the top of your campaign page</h4> -->
+
+        <br>
+
+        <!-- <h3>Campaign Advertising vedio</h3>
+                <h4>provide a short vedio that best describe your campaign  to your audience</h4>
+
+                <div class="form-group">
+
+                  <input style="float: left;width: 50%;" type="file" name="vedioPath"   (change)="selectCampaignVedio($event)"   class="form-control" />
+                  <button style="float: right;" type="submit"  (click)='uploadvedioFile()' class = "btn btn-primary">upload Campaign Vedio </button> -->
+
+        <!-- </div><br> -->
+        <br>
+        <h2>Estimate Amount</h2>
+        <h4>provide a minimunAmount that you need to start a Campaign</h4>
+        <ns-textField type="number"  class="textfieldBorderColor  font13" [rformgroup]="rform" rformControlName="amount">
+        </ns-textField>
+
+        <h2>Description</h2>
+        <h4>Provide details of your campaign</h4>
+        <ns-textField style="height: 400px;"  class="textfieldBorderColor  font13" [rformgroup]="rform"
+         rformControlName="description">
+        </ns-textField>
+        <h2>Campaign Type</h2>
+        <h4>provide a type that best describe your campaign </h4>
+        <mat-form-field [formGroup]="rform">
+          <label for="dataUnitSelect">Select you Catagory: </label>
+          <mat-select formControlName="type" required>
+            <mat-option *ngFor="let item of ['Technology','Design','Fashion','Food','Music','Games']" [value]="item">{{item}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="rform.controls['type'].hasError('required')">Please choose a Location</mat-error>
+        </mat-form-field>
+        <h2>Campaign main image</h2>
+        <h4>provide an image that best describe your campaign to your audience</h4>
+
+        <div class="form-group">
+
+          <input style="float: left;width: 30%;" type="file" name="imagePath" (change)="selectCampaignImage($event)"
+            class="form-control" /><br>
+
+        </div>
+
+        <br>
+        <h2>Campaign images</h2>
+        <h4>provide an images that best describe your campaign to your audience</h4>
+
+        <div class="form-group">
+
+            <div>
+              <input type="file" name="images" multiple (change)="selectMultipleImage($event)" />
+            </div>
+
+        </div>
+
+        <h2>Campaign Vedio</h2>
+        <h4>provide a vedio that best describe your campaign to your audience</h4>
+
+        <div class="form-group">
+          <!-- <label for="myFileField">Select a file: </label> -->
+
+          <input style="float: left;width: 30%;" type="file" name="vedioPath" (change)="selectCampaignVedio($event)"
+            class="form-control" />
+
+          <!-- <button style="float: right;" type="submit" (click)='uploadFile()' class="btn btn-primary">upload Campaign
+            Image </button> -->
+
+        </div>
+      </div>
+    </div>
+    <h1 style="text-align: center;">Campaign Reward</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <h2>Pledge Amount 1</h2>
+        <h4>Give the appropriate amount that attract every investor</h4>
+        <ns-textField type="number" class="textfieldBorderColor  font13" [rformgroup]="rform"
+         rformControlName="pledgeAmount1">
+        </ns-textField>
+
+        <h2>Reward </h2>
+        <h4>Give the details about the reward</h4>
+        <ns-textField class="textfieldBorderColor  font13" [rformgroup]="rform"
+         rformControlName="rewardDetails1">
+        </ns-textField>
+
+
+      </div>
+      <div class="panel-body">
+
+        <h2>Pledge Amount 2</h2>
+        <h4>Give the appropriate amount that attract every investor</h4>
+        <ns-textField type="number" class="textfieldBorderColor  font13" [rformgroup]="rform"
+         rformControlName="pledgeAmount2">
+        </ns-textField>
+
+        <h2>Reward </h2>
+        <h4>Give the details about the reward</h4>
+        <ns-textField class="textfieldBorderColor  font13" [rformgroup]="rform"
+        rformControlName="rewardDetails2">
+        </ns-textField>
+
+
+      </div>
+      <div class="panel-body">
+
+        <h2>Pledge Amount 3</h2>
+        <h4>Give the appropriate amount that attract every investor</h4>
+        <ns-textField type="number" class="textfieldBorderColor  font13" [rformgroup]="rform"
+        rformControlName="pledgeAmount3">
+        </ns-textField>
+
+        <h2>Reward </h2>
+        <h4>Give the details about the reward</h4>
+        <ns-textField class="textfieldBorderColor  font13" [rformgroup]="rform"
+         rformControlName="rewardDetails3">
+        </ns-textField>
+
+
+      </div>
+    </div>
+    <button type="submit" (click)='startCampaign()' class="btn btn-primary">start Campaign </button>
+
+  </form>
+</div>
